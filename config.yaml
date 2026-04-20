@@ -1,0 +1,41 @@
+server:
+  listen: ":4000"
+
+routing:
+  chat_paths:
+    - "/v1/chat/completions"
+    - "/chat/completions"
+    - "/api/v1/chat/completions"
+
+models:
+  plan-simple:
+    id: "deepseek/deepseek-r1-distill-llama-70b"
+    provider:
+      max_price:
+        prompt: 5
+        completion: 15
+      allow_fallbacks: false
+
+  act-simple:
+    id: "mistralai/devstral-small"
+    provider:
+      max_price:
+        prompt: 5
+        completion: 15
+      allow_fallbacks: false
+
+  plan-advanced:
+    id: "deepseek/deepseek-v3.2-exp"
+    provider:
+      max_price:
+        prompt: 25
+        completion: 40
+      allow_fallbacks: true
+
+  act-advanced:
+    id: "qwen/qwen3-coder-30b-a3b-instruct"
+    provider:
+      max_price:
+        prompt: 10
+        completion: 30
+      allow_fallbacks: true
